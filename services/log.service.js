@@ -20,4 +20,14 @@ const printHelp = () => {
   );
 }
 
-export { printError, printSuccess, printHelp }
+const printWeather = (weather, icon) => {
+  console.log(
+    dedent`${chalk.bgYellow('WEATHER')}
+    Город: ${weather.name}
+    Скорость ветра: ${weather.wind.speed} м/с
+    ${icon}  ${weather.weather[0].description}
+    Температура: ${weather.main.temp_min} - ${weather.main.temp_max} (ощущается как ${weather.main.feels_like})`
+  )
+}
+
+export { printError, printSuccess, printHelp, printWeather }
